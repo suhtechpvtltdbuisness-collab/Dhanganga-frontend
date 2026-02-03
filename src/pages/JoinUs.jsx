@@ -1,6 +1,8 @@
 import { ChevronDown, Phone, Upload } from "lucide-react";
 import { useState } from "react";
 import InformationCard from "../components/InformationCard";
+import { Link } from "react-router-dom";
+
 
 const JoinUs = () => {
   const [formData, setFormData] = useState({
@@ -224,13 +226,21 @@ const JoinUs = () => {
                     onChange={handleInputChange}
                     className="mt-1 h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                   />
-                  <label
-                    htmlFor="agreeToTerms"
-                    className="text-sm text-gray-600"
-                  >
-                    I Agree To Terms and Conditions.
+
+                  <label htmlFor="agreeToTerms" className="text-sm text-gray-600">
+                    I agree to{" "}
+                    <Link
+                      to="/terms"
+                      className="text-blue-600 hover:text-blue-700 underline font-medium"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Terms and Conditions
+                    </Link>
+                    .
                   </label>
                 </div>
+
 
                 {/* Submit */}
                 <button
@@ -370,9 +380,8 @@ const Dropdown = ({
         {selected || label}
       </span>
       <ChevronDown
-        className={`h-5 w-5 text-gray-400 transition-transform ${
-          open ? "rotate-180" : ""
-        }`}
+        className={`h-5 w-5 text-gray-400 transition-transform ${open ? "rotate-180" : ""
+          }`}
       />
     </button>
     {open && (

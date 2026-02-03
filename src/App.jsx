@@ -31,6 +31,8 @@ import DiscoverVehicle from "./pages/DiscoverVehicle.jsx";
 import MainAppoinment from "./pages/MainAppoinment.jsx";
 import PaymentPage from "./pages/PaymentPage.jsx";
 import ServiceDetails from "./pages/ServiceDetails";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -116,6 +118,8 @@ function App() {
               path="/discover-RealEstate"
               element={<DiscoverRealEstate />}
             />
+            <Route path="/terms" element={<TermsAndConditions />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
 
             {/* Discover Hire Page */}
             <Route path="/discover-Hire" element={<DiscoverHire />} />

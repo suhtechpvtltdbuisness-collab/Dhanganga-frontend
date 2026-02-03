@@ -126,13 +126,34 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 {[
-                  "Dhanganga Online Public Kendra",
-                  "Dhanganga Associate",
-                  "Dhanganga Physical Treatment Home",
-                  "Dhanganga Store",
-                  "Dhanganga Real Estate",
-                  "Dhanganga Hire Services",
-                  "Dhanganga Hire Vehicle",
+                  {
+                    name: "Dhanganga Online Public Kendra",
+                    href: "/discover-Public-Kendra",
+                  },
+                  {
+                    name: "Dhanganga Associate",
+                    href: "/MainService",
+                  },
+                  {
+                    name: "Dhanganga Physical Treatment Home",
+                    href: "/MainService",
+                  },
+                  {
+                    name: "Dhanganga Store",
+                    href: "/MainServicee",
+                  },
+                  {
+                    name: "Dhanganga Real Estate",
+                    href: "/MainService",
+                  },
+                  {
+                    name: "Dhanganga Hire Services",
+                    href: "/MainService",
+                  },
+                  {
+                    name: "Dhanganga Hire Vehicle",
+                    href: "/MainService",
+                  },
                 ].map((service, index) => (
                   <motion.li
                     key={index}
@@ -141,15 +162,16 @@ const Footer = () => {
                     whileHover={{ x: 6 }}
                   >
                     <a
-                      href="#"
+                      href={service.href}
                       className="flex items-center gap-2 text-slate-300 hover:text-white text-sm"
                     >
                       <div className="w-2 h-2 bg-blue-400/50 rounded-full"></div>
-                      {service}
+                      {service.name}
                     </a>
                   </motion.li>
                 ))}
               </ul>
+
             </motion.div>
 
             {/* Quick Links */}
@@ -158,26 +180,29 @@ const Footer = () => {
                 Quick Links
                 <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-full"></div>
               </h4>
-              <ul className="space-y-3">
-                {["Book Services", "Terms of Payment", "Privacy Policy"].map(
-                  (link, index) => (
-                    <motion.li
-                      key={index}
-                      variants={fadeInUp}
-                      custom={index + 4}
-                      whileHover={{ x: 6 }}
-                    >
-                      <a
-                        href="#"
-                        className="flex items-center gap-2 text-slate-300 hover:text-white text-sm"
-                      >
-                        <div className="w-2 h-2 bg-emerald-400/50 rounded-full"></div>
-                        {link}
-                      </a>
-                    </motion.li>
-                  )
-                )}
-              </ul>
+             <ul className="space-y-3">
+  {[
+    { name: "Book Services", href: "/contact" },
+    { name: "Terms of Payment", href: "/terms" },
+    { name: "Privacy Policy", href: "/privacy" },
+  ].map((link, index) => (
+    <motion.li
+      key={index}
+      variants={fadeInUp}
+      custom={index + 4}
+      whileHover={{ x: 6 }}
+    >
+      <a
+        href={link.href}
+        className="flex items-center gap-2 text-slate-300 hover:text-white text-sm"
+      >
+        <div className="w-2 h-2 bg-emerald-400/50 rounded-full"></div>
+        {link.name}
+      </a>
+    </motion.li>
+  ))}
+</ul>
+
             </motion.div>
 
             {/* Support & App */}
@@ -187,27 +212,30 @@ const Footer = () => {
                 <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
               </h4>
               <ul className="space-y-3">
-                {["Forum Support", "Help & FAQ", "Contact Us"].map(
-                  (support, index) => (
-                    <motion.li
-                      key={index}
-                      variants={fadeInUp}
-                      custom={index + 5}
-                      whileHover={{ x: 6 }}
+                {[
+
+                  { name: "Help & FAQ", href: "/contact" },
+                  { name: "Contact Us", href: "/contact" },
+                ].map((support, index) => (
+                  <motion.li
+                    key={index}
+                    variants={fadeInUp}
+                    custom={index + 5}
+                    whileHover={{ x: 6 }}
+                  >
+                    <a
+                      href={support.href}
+                      className="flex items-center gap-2 text-slate-300 hover:text-white text-sm"
                     >
-                      <a
-                        href="#"
-                        className="flex items-center gap-2 text-slate-300 hover:text-white text-sm"
-                      >
-                        <div className="w-2 h-2 bg-purple-400/50 rounded-full"></div>
-                        {support}
-                      </a>
-                    </motion.li>
-                  )
-                )}
+                      <div className="w-2 h-2 bg-purple-400/50 rounded-full"></div>
+                      {support.name}
+                    </a>
+                  </motion.li>
+                ))}
               </ul>
 
-              {/* App Download */}
+
+              {/* App Download
               <div className="pt-4">
                 <p className="text-sm text-slate-400 mb-3 font-medium">
                   Download Our App
@@ -219,7 +247,7 @@ const Footer = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 />
-              </div>
+              </div> */}
             </motion.div>
           </motion.div>
 

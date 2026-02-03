@@ -1,16 +1,17 @@
 import {
-    ArrowRight,
-    ChevronLeft,
-    ChevronRight,
-    MessageCircle,
-    Phone,
-    Sparkles,
-    Star,
-    Users,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  MessageCircle,
+  Phone,
+  Sparkles,
+  Star,
+  Users,
 } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { fetchServices } from "../api/services";
 import ServiceCard from "../components/ServiceCard";
+import { Link } from "react-router-dom";
 
 const MainService = () => {
   const scrollContainerRef = useRef(null);
@@ -179,13 +180,13 @@ const MainService = () => {
               </div>
 
               {/* CTA Button */}
-              <div className="mt-8">
+              {/* <div className="mt-8">
                 <button className="group btn-primary flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold hover-lift mx-auto">
                   <span className="text-xl">💡</span>
                   Explore Innovation
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -272,27 +273,26 @@ const MainService = () => {
             )}
             {loading
               ? Array.from({ length: 6 }).map((_, index) => (
-                  <div key={index} className="flex-none w-80 sm:w-96 h-56 bg-slate-100 animate-pulse rounded-2xl" />
-                ))
+                <div key={index} className="flex-none w-80 sm:w-96 h-56 bg-slate-100 animate-pulse rounded-2xl" />
+              ))
               : ([...services, ...services].map((service, index) => (
-                  <div
-                    key={`${service._id || index}-${index}`}
-                    className="flex-none w-80 sm:w-96"
-                    style={{
-                      animation: `fadeInUp 0.6s ease-out ${
-                        (index % (services.length || 1)) * 100
+                <div
+                  key={`${service._id || index}-${index}`}
+                  className="flex-none w-80 sm:w-96"
+                  style={{
+                    animation: `fadeInUp 0.6s ease-out ${(index % (services.length || 1)) * 100
                       }ms both`,
-                    }}
-                  >
-                    <ServiceCard
-                      title={service.serviceName || service.title || "Service"}
-                      description={service.details || service.description || ""}
-                      icon={"🛠️"}
-                      link={`/service-details/${service._id || service.id}`}
-                      category={undefined}
-                    />
-                  </div>
-                )))}
+                  }}
+                >
+                  <ServiceCard
+                    title={service.serviceName || service.title || "Service"}
+                    description={service.details || service.description || ""}
+                    icon={"🛠️"}
+                    link={`/service-details/${service._id || service.id}`}
+                    category={undefined}
+                  />
+                </div>
+              )))}
           </div>
 
           {/* Gradient Overlays for scroll indication */}
@@ -315,19 +315,29 @@ const MainService = () => {
               </div>
 
               {/* CTA Buttons */}
+
+
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-                <button className="group w-full sm:w-auto btn-primary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift">
+                <Link
+                  to="/contact"
+                  className="group w-full sm:w-auto btn-primary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
+                >
                   <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                   Talk to a Consultant
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
+                </Link>
 
-                <button className="group w-full sm:w-auto btn-secondary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift">
+                <Link
+                  to="/contact"
+                  className="group w-full sm:w-auto btn-secondary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
+                >
                   <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   Contact Us Now
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
+                </Link>
               </div>
+
+
 
               {/* Contact Information */}
               <div className="pt-6 sm:pt-8 border-t border-slate-200/50">

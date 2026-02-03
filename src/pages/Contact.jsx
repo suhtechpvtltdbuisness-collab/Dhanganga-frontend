@@ -69,7 +69,7 @@ export default function Contact() {
               <h3 className="font-semibold text-lg">Bhagalpur</h3>
               <p className="text-gray-600">
                 Naya Tola TeenPuliya (Ganeshpur), Post - Khirabandh <br />
-                Thana - Gadgishpur, District - Bhagalpur
+                P.s - By Pass , District - Bhagalpur , (Bihar) India
               </p>
             </div>
           </div>

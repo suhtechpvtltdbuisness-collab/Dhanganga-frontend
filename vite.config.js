@@ -2,18 +2,30 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    react()
+    react(),
   ],
+
+  build: {
+    chunkSizeWarningLimit: 1000, // removes warning
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          router: ["react-router-dom"],
+        },
+      },
+    },
+  },
+
   preview: {
-    host: true, // bind to 0.0.0.0 so Railway can access it
-    port:  5173, // use Railway's PORT env
+    host: true,
+    port: 5173,
     allowedHosts: [
-      'localhost',
-      'dhanganga-production-adfb.up.railway.app' // Railway domain
-    ]
-  }
+      "localhost",
+      "dhanganga-production-adfb.up.railway.app",
+    ],
+  },
 });

@@ -4,33 +4,33 @@ function MovingBanner({
   text = "तेरा सपना सच हो",
   speed = 15,
   direction = "left"
-  
 }) {
   const animationName = direction === "right" ? "slide-right" : "slide-left";
 
   return (
-    <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] overflow-hidden my-12">
+    <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] overflow-hidden my-12.5 h-[80px]">
       {/* Animated gradient background */}
-      <div className="relative bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 py-6 shadow-2xl">
-        {/* Overlay pattern for depth */}
+      <div className="relative bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 py-3 shadow-2xl">
+        {/* Overlay pattern */}
         <div className="absolute inset-0 bg-black opacity-10"></div>
 
-        {/* Animated shimmer effect */}
+        {/* Shimmer effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 shimmer"></div>
 
-        {/* Scrolling text container */}
+        {/* Scrolling text */}
         <div className="relative z-10">
           <div
-            className="inline-block whitespace-nowrap font-black text-3xl md:text-5xl lg:text-6xl text-white tracking-wide"
+            className="inline-block whitespace-nowrap font-black text-2xl md:text-4xl lg:text-5xl text-white tracking-wide"
             style={{
               animation: `${animationName} ${speed}s linear infinite`,
-              textShadow: '0 2px 10px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.2)'
+              textShadow:
+                "0 2px 10px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.2)"
             }}
           >
             {[...Array(8)].map((_, i) => (
-              <span key={i} className="inline-block px-12 md:px-16">
+              <span key={i} className="inline-block px-8 md:px-12">
                 <span className="inline-block animate-pulse-slow">🌟</span>
-                <span className="mx-4 md:mx-6">{text}</span>
+                <span className="mx-4 md:mx-5">{text}</span>
                 <span className="inline-block animate-pulse-slow">🌟</span>
               </span>
             ))}
@@ -67,7 +67,7 @@ function MovingBanner({
           }
           50% {
             opacity: 0.7;
-            transform: scale(1.2);
+            transform: scale(1.15);
           }
         }
 
@@ -79,7 +79,7 @@ function MovingBanner({
           animation: pulse-slow 2s ease-in-out infinite;
         }
 
-        /* Hover effect */
+        /* Pause animation on hover */
         .w-screen:hover div[style*="animation"] {
           animation-play-state: paused;
         }

@@ -177,6 +177,7 @@ const Service = () => {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
                 <motion.button
+                onClick={() => navigate("/contact")}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="group w-full sm:w-auto btn-primary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"

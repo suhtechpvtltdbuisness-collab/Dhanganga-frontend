@@ -1,4 +1,3 @@
-
 import {
   Calendar,
   ChevronDown,
@@ -50,7 +49,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed w-full h-[130px] z-50 mb-6 transition-all duration-700 ${isScrolled
+      className={`fixed w-full h-[105px] z-50 mb-6 transition-all duration-700 ${isScrolled
         ? "glass-effect shadow-2xl shadow-slate-200/30"
         : "bg-gray-200 backdrop-blur-md shadow-xl shadow-slate-100/40"
         }`}
